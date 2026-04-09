@@ -1,8 +1,41 @@
-# copilot_best_practice
-🚀 このリポジトリは2026年4月時点でのGitHub Copilotの運用に必要な.github/ 配下でのおすすめファイル構成です。
+<div align="center">
+  <h1>🚀 日本最強の「GitHub Copilot 活用プロジェクトテンプレート」を作る</h1>
 
-## 📚 参考資料 (References)
-これまでのカスタムエージェント（`.agent.md`）、リポジトリ全体カスタムインストラクション（`.github/copilot-instructions.md`）、パス別カスタムインストラクション（`.instructions.md`）、エージェントスキル（`SKILL.md`）、およびクラウドエージェントワークフロー（`copilot-setup-steps.yml`）の設計・定義において参考にした公式ドキュメントおよび関連リソースです。
+最近、AI関連の情報のキャッチアップできてますか？
+
+私は正直、各社AIのアップデートが早すぎてついていけてません。
+
+しかもネットやGithubを検索しても英語の記事ばかりで読む気にもなれません。
+
+そんな時に、「日本人用のテンプレートリポジトリ作ってみんなにプルリク出して貰えば最強のリポジトリできるのでは？」
+
+と思い、このリポジトリを作るに至りました。
+
+少しでも共感してくださった方は、じゃんじゃんプルリクを出してほしいです。
+
+みんなで力を合わせて、誰もがAIの機能を最大限活かして開発できるリポジトリを作りませんか？
+</div>
+
+## ディレクトリ構成 (Directory Structure)
+
+```text
+.
+├── .github/
+│   ├── agents/                   # カスタムエージェントの役割とプロンプト定義 (`*.agent.md`)
+│   ├── instructions/             # 特定のパスごとに適用されるカスタムインストラクション (`*.instructions.md`)
+│   ├── skills/                   # エージェントに固有のタスクを実行させるスキルセット (`SKILL.md`)
+│   ├── workflows/                # Copilot Cloud Agent等の環境構築向けCI/CD設定 (`copilot-setup-steps.yml`)
+│   ├── copilot-instructions.md   # リポジトリ全体に適用される基本のAIプロンプト設定
+│   └── COPILOT_USAGE.md          # 導入・運用に向けた各ファイルと機能の使い分けガイド
+├── AGENTS.md                     # プロジェクト開始時にAIエージェントに提示する開発環境・コマンド等の一覧
+└── README.md                     # (このファイル)
+```
+
+## 📕 参考資料 (References)
+
+### 🤖 AGENTS.md (AIコーディングエージェント向け README)
+- [agentsmd/agents.md](https://github.com/agentsmd/agents.md)
+  - （AIコーディングエージェントに向けた「エージェント版 README」として活用されるオープンな標準フォーマットとベストプラクティス）
 
 ### 🌟 リポジトリ全体カスタムインストラクション (.github/copilot-instructions.md)
 - [Adding repository custom instructions for GitHub Copilot - GitHub Docs](https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions)
@@ -24,7 +57,7 @@
 - [About agent skills - GitHub Docs](https://docs.github.com/en/copilot/concepts/agents/about-agent-skills)
   - （エージェントが専門タスクを実行する際に呼び出せる指示・スクリプト群 `SKILL.md` の概念と仕様・配置場所）
 - [Creating agent skills for GitHub Copilot - GitHub Docs](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/create-skills)
-  - （ディレクトリ構造、YAMLフロントマター、スクリプト実行時の `allowed-tools` を用いた自動承認設定などの実践的作成方法）
+  - （ディレクトリ構造、YAMLフロントマター、などの実践的作成方法）
 
 ### ☁️ Copilot Cloud Agent ワークフロー (.github/workflows/copilot-setup-steps.yml)
 - [Adding GitHub Copilot cloud agent to your organization - GitHub Docs](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-organization/add-copilot-cloud-agent)
