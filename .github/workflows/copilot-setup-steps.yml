@@ -1,15 +1,20 @@
 name: "Copilot Environment Setup"
 description: "クラウドエージェント（Copilot）向けの開発環境セットアップ定義"
 
-# クラウドエージェントが内部的にこのワークフローを呼び出せるようにする
 on:
-  workflow_call:
-  # 手動デバッグ用
   workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/copilot-setup-steps.yml
+  pull_request:
+    paths:
+      - .github/workflows/copilot-setup-steps.yml
 
 jobs:
-  setup:
+  copilot-setup-steps:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
