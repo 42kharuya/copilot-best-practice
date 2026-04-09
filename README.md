@@ -2,7 +2,11 @@
 🚀 このリポジトリは2026年4月時点でのGitHub Copilotの運用に必要な.github/ 配下でのおすすめファイル構成です。
 
 ## 📚 参考資料 (References)
-これまでのカスタムエージェント（`.agent.md`）、カスタムインストラクション（`.instructions.md`）、エージェントスキル（`SKILL.md`）、およびクラウドエージェントワークフロー（`copilot-setup-steps.yml`）の設計・定義において参考にした公式ドキュメントおよび関連リソースです。
+これまでのカスタムエージェント（`.agent.md`）、リポジトリ全体カスタムインストラクション（`.github/copilot-instructions.md`）、パス別カスタムインストラクション（`.instructions.md`）、エージェントスキル（`SKILL.md`）、およびクラウドエージェントワークフロー（`copilot-setup-steps.yml`）の設計・定義において参考にした公式ドキュメントおよび関連リソースです。
+
+### 🌟 リポジトリ全体カスタムインストラクション (.github/copilot-instructions.md)
+- [Adding repository custom instructions for GitHub Copilot - GitHub Docs](https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions)
+  - （リポジトリ全体に適用されるグローバルなカスタムインストラクションの作成と設定についての公式ガイドライン）
 
 ### 🤖 カスタムエージェント (.github/agents/*.agent.md)
 - [About custom agents - GitHub Docs](https://docs.github.com/en/copilot/concepts/prompting/about-custom-agents)
