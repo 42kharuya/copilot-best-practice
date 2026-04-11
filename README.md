@@ -3,86 +3,119 @@
   <p><b>AIの進化スピードに、チーム全員でサバイブするための「集合知」リポジトリ</b></p>
 </div>
 
-日々のAIツールの進化はあまりにも早く、最新のベストプラクティスは英語圏に散在しています。
-これを個人の力だけでキャッチアップし、現場のプロジェクトに落とし込むのはもはや限界にきています。
+このリポジトリは、GitHub Copilot を**高精度・低ブレで使うための共通OS**と、各プロジェクトの事情を**安全に差し込むための設計**をまとめたテンプレートです。
 
-そこで、**「日本の現場ですぐに使える、GitHub Copilotの最強のテンプレート」**をみんなの力で作りませんか？
+日々変わるAI活用ノウハウを、個人のメモではなく**再利用できる形**で蓄積し、日本語の現場でそのまま使いやすい形に整理することを目指しています。
 
-このリポジトリには、GitHub Copilotをしゃぶり尽くすための以下の骨組みをすでに用意しています。
-- 💬 **対話ルール**: 全体ルールと局所ルールを分けて管理できる構成
-- 🤖 **カスタムエージェント**: レビューやテスト生成に特化したAI同僚
-- 🛠️ **スキル / ワークフロー**: エージェント実行やクラウド環境構築を支える拡張ポイント
+## このリポジトリがやりたいこと
 
-「うちの現場ではこういうプロンプトを使っている」
-「この設定（.instructions.md）を追加したら劇的に精度が上がった」
+- どのプロジェクトでも使いやすい**普遍原則**を先に整える
+- 技術スタックや構成差分は**差し込み設計**として分離する
+- 具体例は本体から切り離し、**Optional Packs** として追加できるようにする
 
-そんな皆さんの実践的な知見を、ぜひPull Requestで共有してください。
-属人化しがちなAI活用のノウハウをここに集約し、誰もが**初日からAIのポテンシャルを120%引き出せるベースキャンプ**を一緒に作り上げましょう！
+一言でいうと、
 
-## このリポジトリの戦略
+> **全部入りの完成品ではなく、ブレない骨格と安全な差し込み口を提供するリポジトリ**です。
 
-このリポジトリは、**あらゆるプロジェクトで共通な部分だけを完成版として持ち、プロジェクトごとに変わる部分は差し替えやすくする**ことを重視しています。
+## このテンプレートで完成版にするもの
 
-要するに、**「全部入りテンプレート」ではなく、「ブレない骨格 + 差し込み設計」**を提供する方針です。
-
-### 3つのレイヤー
-
-| レイヤー | 役割 | 何を置くか |
-| :--- | :--- | :--- |
-| **Core** | どのプロジェクトでも変わりにくい共通原則 | `AGENTS.md`, `.github/copilot-instructions.md` |
-| **Slots / Blueprints** | プロジェクトごとに差し替える場所を明確化する | 記入ガイド付きテンプレート、`.example`、使い分けガイド |
-| **Optional Packs** | 必要な人だけ使う具体例や拡張 | スタック別サンプル、ケーススタディ、発展的な workflow |
-
-### なぜこの形にするのか
-
-- **普遍部分**を完成版にすると、初見でもすぐ使える
-- **可変部分**を無理に完成版にしないことで、どんなプロジェクトにも持ち込みやすい
-- 技術スタック別の具体例は本体から切り離すことで、汎用性と実用性を両立できる
-
-### このリポジトリで完成版にするもの
-
-- AIの振る舞い原則
-- 出力ブレを減らすルール
-- 変更時の安全性ルール
+- AIの基本動作原則
+- 応答や提案のブレを減らすルール
+- 変更時の安全性と検証姿勢
 - どこに何を書くべきかの整理
 
-### このリポジトリで「差し込み」にするもの
+## このテンプレートで差し込みにするもの
 
 - 技術スタック
 - ディレクトリ構造
-- ビルド / テストコマンド
+- ビルド / テスト / 起動コマンド
 - アーキテクチャや命名規約
-- チーム固有ルール
+- チーム固有の運用ルール
 
-初見の人向けに一言で言うと、
+## リポジトリ戦略
 
-> **このリポジトリは、GitHub Copilot を高精度・低ブレで使うための共通OSと、その上に各プロジェクトの事情を安全に差し込むための設計集です。**
+### 3つのレイヤー
 
-## ディレクトリ構成 (Directory Structure)
+| レイヤー | 役割 | 代表例 |
+| :--- | :--- | :--- |
+| **Core** | どのプロジェクトでも変わりにくい共通原則 | `AGENTS.md`, `.github/copilot-instructions.md` |
+| **Blueprints** | コピーして差し込む雛形 | `.github/blueprints/` |
+| **Optional Packs** | 必要な人だけ追加する具体例や拡張 | `.github/optional-packs/` |
+
+### なぜこの形にするのか
+
+- 普遍部分を先に完成させると、初見でも導入しやすい
+- 可変部分を Blueprint 化すると、汎用性を崩さず実用性を上げやすい
+- 強い前提を持つ具体例を分離すると、本体の保守がしやすい
+
+## はじめ方
+
+1. まず [AGENTS.md](AGENTS.md) と [.github/copilot-instructions.md](.github/copilot-instructions.md) を Core として使う
+2. プロジェクト固有情報は [.github/blueprints/project-context/README.md](.github/blueprints/project-context/README.md) と [.github/blueprints/project-context/project-context-checklist.md](.github/blueprints/project-context/project-context-checklist.md) から整理する
+3. 必要な雛形を [.github/blueprints/README.md](.github/blueprints/README.md) から選び、実際の配置先へコピーして調整する
+4. 強い前提を持つ具体例が必要なら [.github/optional-packs/README.md](.github/optional-packs/README.md) を使う
+
+## 説明の読み分け
+
+- [README.md](README.md)
+  - このテンプレートリポジトリ自体の目的、戦略、参加方法
+- [.github/COPILOT_USAGE.md](.github/COPILOT_USAGE.md)
+  - Copilot 関連機能の全体像と使い分けの概要
+- [.github/about/README.md](.github/about/README.md)
+  - 各機能・各ファイルの詳細な使い方
+
+README では、`.github` 配下の詳細仕様には踏み込みすぎず、**何を目指すリポジトリか**と**どう参加すれば価値が増えるか**に集中します。
+
+## こんな人に向いています
+
+- Copilot の出力ブレを減らしたい人
+- チームで共通のAI運用ルールを持ちたい人
+- 技術スタック依存のテンプレートではなく、骨格から整えたい人
+- 具体例を追加しながらも、本体の汎用性を保ちたい人
+
+## コントリビューションで歓迎するもの
+
+- Core をより普遍的で壊れにくくする改善
+- Blueprints の記入ガイドやチェックリストの改善
+- Optional Packs として切り出せる具体例
+- 日本語での導入判断をしやすくする説明改善
+- 既存ドキュメントの責務分離を保つ改善
+
+## コントリビューション時の考え方
+
+- **本体に入れるべきか、Blueprint にすべきか、Optional Pack にすべきか**を先に判断する
+- 特定技術だけで通用する内容は、できるだけ本体へ直接入れない
+- 各機能の使い方説明は、本文の先頭ではなく [.github/about/README.md](.github/about/README.md) 側に寄せる
+- 無関係な整理や全面リライトを混ぜず、目的ごとに小さく改善する
+
+## 主要ディレクトリ
 
 ```text
 .
-├── .github/
-│   ├── about/                    # 各機能・各ファイルの詳細説明
-│   ├── agents/                   # 実際に有効化するカスタムエージェント定義
-│   ├── blueprints/               # コピーして使う雛形群 (`*.example`)
-│   ├── instructions/             # 実際に有効化するパス別 instructions
-│   ├── optional-packs/           # 必要な人だけ追加する具体例や拡張
-│   ├── skills/                   # 実際に有効化する skills
-│   ├── workflows/                # 実際に有効化する workflows
-│   ├── copilot-instructions.md   # リポジトリ全体に適用する共通ルール
-│   └── COPILOT_USAGE.md          # 全体像と使い分けの概要ガイド
-├── AGENTS.md                     # どのプロジェクトでも使いやすい共通原則
-└── README.md                     # (このファイル)
+├── AGENTS.md
+├── README.md
+└── .github/
+    ├── copilot-instructions.md
+    ├── COPILOT_USAGE.md
+    ├── about/
+    ├── blueprints/
+    ├── optional-packs/
+    ├── agents/
+    ├── instructions/
+    ├── skills/
+    └── workflows/
 ```
 
-## このテンプレートの使い方
+詳細な使い分けは [README.md](README.md) ではなく、[.github/COPILOT_USAGE.md](.github/COPILOT_USAGE.md) と [.github/about/README.md](.github/about/README.md) に集約します。
 
-1. まず `AGENTS.md` と `.github/copilot-instructions.md` を **Core** として使う
-2. プロジェクト固有情報を入れるときは `.github/blueprints/project-context/` のチェックリストと雛形から始める
-3. 必要な雛形を `.github/blueprints/` から選んで、実際の配置先へコピーする
-4. 特定用途の具体例が必要なら `.github/optional-packs/` を追加で使う
-5. 詳しい使い方は `.github/about/` を参照する
+## 参加方法
+
+次のような改善は、そのまま Pull Request にしやすいです。
+
+- 既存 Blueprint の説明をわかりやすくする
+- 導入判断を助けるチェックリストを追加する
+- Optional Pack として切り出せるサンプルを追加する
+- ドキュメント責務の境界をより明確にする
 
 ## 📕 参考資料 (References)
 
