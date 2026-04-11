@@ -28,3 +28,5 @@
 
 ケーススタディは便利ですが、全員に必須ではありません。
 そのため、本体へ混ぜずに Optional Packs として扱います。
+
+保守強度や `Deprecated` / `Needs Review` などの扱いは、[CONTRIBUTING.md](../../CONTRIBUTING.md) の保守方針を参照してください。
