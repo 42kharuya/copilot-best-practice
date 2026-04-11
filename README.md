@@ -67,6 +67,8 @@
   - Copilot 関連機能の全体像と使い分けの概要
 - [.github/about/README.md](.github/about/README.md)
   - 各機能・各ファイルの詳細な使い方
+- [.github/about/ABOUT_COMPARISON.md](.github/about/ABOUT_COMPARISON.md)
+  - `AGENTS.md` / `instructions` / `agents` / `skills` / `workflows` の詳細比較と判断フロー
 
 README では、`.github` 配下の詳細仕様には踏み込みすぎず、**何を目指すリポジトリか**と**どう参加すれば価値が増えるか**に集中します。
 

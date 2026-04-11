@@ -26,6 +26,7 @@
 
 ## 現在の説明ドキュメント
 
+- [比較と判断フロー](ABOUT_COMPARISON.md)
 - [Blueprints の説明](ABOUT_BLUEPRINTS.md)
 - [ルート AGENTS.md の説明](ABOUT_ROOT_AGENTS.md)
 - [copilot-instructions.md の説明](ABOUT_COPILOT_INSTRUCTIONS.md)

@@ -25,6 +25,26 @@
 | **skills** | `.github/skills/` | エージェントに実行させる具体的手順 |
 | **workflows** | `.github/workflows/` | クラウド側で動く環境構築や実行準備 |
 
+## 比較表（概要）
+
+| 種類 | 適用範囲 | 常時適用 | 主な役割 | 導入優先度 |
+| :--- | :--- | :--- | :--- | :--- |
+| `AGENTS.md` | 全体 | はい | 共通原則 | 最優先 |
+| `各ディレクトリ/AGENTS.md` | 特定ディレクトリ | はい | 局所文脈 | 高 |
+| `.github/copilot-instructions.md` | 全体 | はい | 応答・提案ルール | 最優先 |
+| `.github/instructions/*.instructions.md` | 特定パス | はい | パス別実装ルール | 高 |
+| `.github/agents/` | 呼び出し時 | いいえ | 専門役割 | 中 |
+| `.github/skills/` | 呼び出し時 | いいえ | 実行手順支援 | 中 |
+| `.github/workflows/` | 実行時 | いいえ | Cloud Agent 準備 | 必要時 |
+
+## 判断フロー（概要）
+
+1. 全体に効く情報か、特定領域にだけ効く情報かを決める
+2. 常に効いてほしいか、必要時だけ呼び出せればよいかを決める
+3. 対話ルールなのか、実行支援なのかを分ける
+4. Cloud Agent の準備が必要なら `workflows` を検討する
+5. 共通原則なら Core、プロジェクト固有なら Blueprints、強い具体例なら Optional Packs に寄せる
+
 ## 使い分けの基本
 
 - まず **Core** をそのまま使う
@@ -34,8 +54,11 @@
 
 導入レベルで迷う場合は、`docs/adoption-decision-guide.md` の「最小導入 / 標準導入 / 拡張導入」の判断を先に行うと整理しやすくなります。
 
+機能ごとの詳しい比較と判断基準は、`.github/about/ABOUT_COMPARISON.md` を参照してください。
+
 ## 詳細説明
 
+- 比較と判断フロー: `.github/about/ABOUT_COMPARISON.md`
 - `AGENTS.md` の説明: `.github/about/ABOUT_ROOT_AGENTS.md`
 - `.github/copilot-instructions.md` の説明: `.github/about/ABOUT_COPILOT_INSTRUCTIONS.md`
 - agents の説明: `.github/about/ABOUT_AGENTS.md`
