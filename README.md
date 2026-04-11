@@ -79,9 +79,10 @@
 ## このテンプレートの使い方
 
 1. まず `AGENTS.md` と `.github/copilot-instructions.md` を **Core** として使う
-2. 必要な雛形を `.github/blueprints/` から選んで、実際の配置先へコピーする
-3. 特定用途の具体例が必要なら `.github/optional-packs/` を追加で使う
-4. 詳しい使い方は `.github/about/` を参照する
+2. プロジェクト固有情報を入れるときは `.github/blueprints/project-context/` のチェックリストと雛形から始める
+3. 必要な雛形を `.github/blueprints/` から選んで、実際の配置先へコピーする
+4. 特定用途の具体例が必要なら `.github/optional-packs/` を追加で使う
+5. 詳しい使い方は `.github/about/` を参照する
 
 ## 📕 参考資料 (References)
 
